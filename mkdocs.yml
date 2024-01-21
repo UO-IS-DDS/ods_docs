@@ -1,1 +1,87 @@
-site_name: My Docs
+site_name: ODS Developer Documentation
+theme:
+  name: material
+  palette:
+    scheme: slate
+    accent: deep orange
+    primary: black
+  logo: assets/uo_logo.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.toc
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate 
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - def_list
+  - footnotes
+  - tables
+nav:
+  - DBT: 
+    - Introduction: dbt/introduction/_introduction.md
+    - SQL: dbt/sql/_sql.md
+    - YAML: dbt/yaml/_yaml.md
+    - Materializations: dbt/materializations/_materializations.md
+    - Commands: dbt/commands/_commands.md
+    - DAG/Threads: dbt/dag_threads/_dag_threads.md
+    - Metadata Site: dbt/metadata_site/_metadata_site.md
+    - Exposures: dbt/exposures/_exposures.md
+    - Tests: dbt/tests/_tests.md 
+    - Targets: dbt/targets/_targets.md
+    - Jinja: dbt/jinja/_jinja.md
+    - Install/Configuration: dbt/installation_configuration/_installation_configuration.md
+    - Project Structure: dbt/project_structure/_project_structure.md
+    - Access Control: dbt/access_control/_access_control.md
+    - Seeds: dbt/seeds/_seeds.md
+    - Packages: dbt/packages/_packages.md
+    - Advanced Techniques: dbt/advanced_techniques/_advanced_techniques.md
+    - Other Tools: dbt/other_tools/_other_tools.md
+    - Bulletin: dbt/bulletin/_bulletin.md
+  #- Git: 
+  #  - Diff GUI Tools : dbt/sql_files/_sql_files.md
+  #  - Line Changes : dbt/sql_files/_sql_files.md
+  #  - Add/Commit : dbt/sql_files/_sql_files.md
+  #  - Tracking : dbt/sql_files/_sql_files.md
+  #  - Install Local : dbt/sql_files/_sql_files.md
+  #  - Git Bash : dbt/sql_files/_sql_files.md
+  #  - Diff CLI : dbt/sql_files//_sql_files.md
+  #  - Checkout : dbt/sql_files//_sql_files.md
+  #  - Branches : dbt/sql_files//_sql_files.md
+  #  - Merging : dbt/sql_files//_sql_files.md
+  #  - Remotes Hosted : dbt/sql_files//_sql_files.md
+  #  - PRs : dbt/sql_files/_sql_files.md
+  #  - Hooks : dbt/sql_files/_sql_files.md
+  #  - Submodules : dbt/sql_files/_sql_files.md
+  #  - Bulletin : dbt/sql_files/_sql_files.md
+  - ODS: ods/_ods.md
+  - DuckDB: duckdb/_duckdb.md
+  - Cognos: cognos/_cognos.md
+  - PowerBI: powerbi/_powerbi.md
+  - DevOps: devops/_devops.md
+  - Connect: connect/_connect.md
+  - Bulletin: bulletin/_bulletin.md
+  - Big Topics: big_topics/_big_topics.md
