@@ -1,5 +1,37 @@
 # ODS DBT Style Guide
 
+# Required: Alphabetized by Source Name, Table Name
+#           Empty line between Tables
+#           Table Descriptions
+#           dbt run-operation generate_base_model --args '{"source_name": "banner__saturn", "table_name": "spriden"}'
+#           Paste SQL in newly-created adjacent file: stg_banner__saturn__spriden.sql
+#           Coalesce NULLs, cast, rename, organize fields, explicit-alias columns for visual indexing
+#           dbt run-operation generate_model_yaml --args '{"model_names": ["stg_banner__saturn__spriden"]}'
+#           Paste YML into models.yml
+
+Model's should be checked for reasonable rowcount before moving down stream
+
+Source column defs for fields deliberately not used/trusted (don't bother for used fields as code-gen won't inherit)
+- minimize code ( remove desc="")
+- space out for folding (between source and tables, tables and cols)
+
+usused fields commented out below in stg.sql from code-gen tailoring and ease of re-entry
+
+
+in models.sql, for multi-line selects, carriage return between select and from, filtering in WHERE not joins, and LEFT JOINs only...
+
+if any fields are aliased (because of calcs?), then all need aliasin in a buffered-right indexing column of 'as field_rename,'
+
+For models with muliple source select * CTEs, linearize them and space (not needed for stg models)
+
+
+# Required: Alphabetized by Model Name
+#           Table and Column Descriptions
+#           Access Group assigned and private (except for Mesh models)
+#           Tests
+#           dbt run-operation generate_model_yaml --args '{"model_names": ["stg_banner__saturn__spriden"], "upstream_descriptions": true}'
+^^ look for template for not bringing datatypes in.  Consider custom aliases for this stuff
+
 ## SQL Style
 
 - Refer to [DBTLab's SQL Style Guide](https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql)
