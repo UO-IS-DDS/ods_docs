@@ -1,4 +1,7 @@
-site_name: ODS Developer Documentation
+site_name: MDS Developer Documentation
+repo_url: https://github.com/UO-IS-DDS/ods_docs
+repo_name: ods_docs
+edit_uri: edit/prod/docs/
 theme:
   name: material
   palette:
@@ -20,6 +23,7 @@ theme:
     - content.code.copy
     - content.code.select
     - content.code.annotate 
+    - content.action.edit
 markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -28,6 +32,13 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - admonition
   - pymdownx.details
   - pymdownx.superfences
@@ -77,7 +88,7 @@ nav:
   #  - Hooks : dbt/sql_files/_sql_files.md
   #  - Submodules : dbt/sql_files/_sql_files.md
   #  - Bulletin : dbt/sql_files/_sql_files.md
-  - ODS: ods/_ods.md
+  - MDS: mds/_mds.md
   - DuckDB: duckdb/_duckdb.md
   - Cognos: cognos/_cognos.md
   - PowerBI: powerbi/_powerbi.md
@@ -85,3 +96,4 @@ nav:
   - Connect: connect/_connect.md
   - Bulletin: bulletin/_bulletin.md
   - Big Topics: big_topics/_big_topics.md
+  - Ellucian ODS: ellucian_ods/_ellucian_ods.md
