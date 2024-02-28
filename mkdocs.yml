@@ -4,6 +4,10 @@ repo_name: ods_docs
 edit_uri: edit/prod/docs/
 plugins:
   - glightbox
+extra:
+  annotate:
+    json: [.s2]
+    python: [.s2]
 theme:
   name: material
   palette:
@@ -97,6 +101,7 @@ nav:
   - Cognos: cognos/_cognos.md
   - PowerBI: powerbi/_powerbi.md
   - DevOps: devops/_devops.md
+  - MKDocs: mkdocs/_mkdocs.md
   - Connect: connect/_connect.md
   - Bulletin: bulletin/_bulletin.md
   - Big Topics: big_topics/_big_topics.md
