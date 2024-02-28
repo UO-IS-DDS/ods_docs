@@ -2,6 +2,8 @@ site_name: DDS Developer Documentation
 repo_url: https://github.com/UO-IS-DDS/ods_docs
 repo_name: ods_docs
 edit_uri: edit/prod/docs/
+plugins:
+  - glightbox
 theme:
   name: material
   palette:
@@ -89,7 +91,8 @@ nav:
   #  - Hooks : dbt/sql_files/_sql_files.md
   #  - Submodules : dbt/sql_files/_sql_files.md
   #  - Bulletin : dbt/sql_files/_sql_files.md
-  - MDS: mds/_mds.md
+  - MDS: 
+    - Overview: mds/overview/_overview.md
   - DuckDB: duckdb/_duckdb.md
   - Cognos: cognos/_cognos.md
   - PowerBI: powerbi/_powerbi.md
@@ -97,4 +100,6 @@ nav:
   - Connect: connect/_connect.md
   - Bulletin: bulletin/_bulletin.md
   - Big Topics: big_topics/_big_topics.md
-  - Ellucian ODS: ellucian_ods/_ellucian_ods.md
+  - Ellucian ODS: 
+    - Introduction: ellucian_ods/introduction/_introduction.md
+    - Daily Refreshes: ellucian_ods/daily_refreshes/_daily_refreshes.md
