@@ -1,4 +1,4 @@
-site_name: MDS Developer Documentation
+site_name: DDS Developer Documentation
 repo_url: https://github.com/UO-IS-DDS/ods_docs
 repo_name: ods_docs
 edit_uri: edit/prod/docs/
@@ -24,6 +24,7 @@ theme:
     - content.code.select
     - content.code.annotate 
     - content.action.edit
+    - content.tabs.link
 markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji

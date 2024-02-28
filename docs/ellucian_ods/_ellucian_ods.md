@@ -1,4 +1,73 @@
 # Ellucian ODS
+``` mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#1d2129',
+      'primaryTextColor': '#e2e4e9',
+      'primaryBorderColor': '#ff6e42',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
+gantt
+    title ODS Replacement Roadmap
+    dateFormat YYYY-MM-DD
+    axisFormat %b-%Y
+        POC      :a1, 2024-02-25, 45d
+        Proof    :a3, after a1, 300d
+        Refactor :a4, after a3, 540d
+        PowerBI  :a5, after a4, 365d
+```
+=== "POC"
+
+    * Sed sagittis eleifend rutrum
+    * Donec vitae suscipit est
+    * Nulla tempor lobortis orci
+
+=== "Proof"
+
+    1. Sed sagittis eleifend rutrum
+    2. Donec vitae suscipit est
+    3. Nulla tempor lobortis orci
+   
+=== "Refactor"
+
+=== "PowerBI"
+
+    1. Sed sagittis eleifend rutrum
+    2. Donec vitae suscipit est
+    3. Nulla tempor lobortis orci
+
+=== "C"
+
+    ``` c
+    #include <stdio.h>
+
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
+
+=== "C++"
+
+    ``` mermaid
+    %%{
+        init: {
+            'theme': 'forest',
+        }
+    }%%
+    xychart-beta
+        title "Sales Revenue"
+        x-axis [jan, feb, mar, apr, may, jun, jul, aug,     sep, oct, nov, dec]
+        y-axis "Revenue (in $)" 4000 --> 11000
+        bar [5000, 6000, 7500, 8200, 9500, 10500, 11000,     10200, 9200, 8500, 7000, 6000]
+        line [5000, 6000, 7500, 8200, 9500, 10500, 11000,     10200, 9200, 8500, 7000, 6000]
+    ```
+
+
 Daily ETL ***LATE*** Workflow
 ``` mermaid
 sequenceDiagram
@@ -43,3 +112,4 @@ sequenceDiagram
 === "Step 5"
 
     empty
+
