@@ -1,3 +1,10 @@
+## Overview
+
+During the course of the day, ODS `Materialized Views` are updated every 30 minutes.  These represent identical records of Banner Tables.
+
+Every night, from 1:30am - 7:00am, the updates to `Materialized Views` are paused, Cognos is unavailable, and `Daily Refresh` ODI `Map Groups` are executed, populating ODS `Reporting Tables` for use in Cognos.  
+
+
 ## Monitoring and Notifications
 
 ``` mermaid
