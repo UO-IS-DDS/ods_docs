@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-and-notifications" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -1448,6 +1448,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monitoring-and-notifications" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1499,6 +1510,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monitoring-and-notifications" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1542,6 +1564,9 @@
 
   <h1>Daily Refreshes</h1>
 
+<h2 id="overview">Overview</h2>
+<p>During the course of the day, ODS <code>Materialized Views</code> are updated every 30 minutes.  These represent identical records of Banner Tables.</p>
+<p>Every night, from 1:30am - 7:00am, the updates to <code>Materialized Views</code> are paused, Cognos is unavailable, and <code>Daily Refresh</code> ODI <code>Map Groups</code> are executed, populating ODS <code>Reporting Tables</code> for use in Cognos.  </p>
 <h2 id="monitoring-and-notifications">Monitoring and Notifications</h2>
 <pre class="mermaid"><code>sequenceDiagram
   autonumber
