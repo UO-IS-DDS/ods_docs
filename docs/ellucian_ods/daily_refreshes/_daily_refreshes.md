@@ -108,9 +108,9 @@ sequenceDiagram
                                         emailext to: 'is-status@uoregon.edu',
                                                  subject: 'LATE - IDR Daily Refresh',
                                                  body: "<p>Good morning IDR Users!<br><br>" +
-                                                       "Unfortunately the data refresh for the following area(s) are running late this morning:        <br><br>" +
+                                                       "Unfortunately the data refresh for the following area(s) are running late this morning:<br><br>" +
                                                        "${etl_domains}" + "<br>" +
-                                                       "This could cause some reports to show incomplete results. We apologize for this         inconvenienceand are working to fix the issue. We will send an update when the refresh is         finished for allareas.<br><br>" +
+                                                       "This could cause some reports to show incomplete results. We apologize for this inconvenienceand are working to fix the issue. We will send an update when the refresh is finished for allareas.<br><br>" +
                                                        "If you have any questions or concerns, please reach out to us via the <a href='https://        serviceuoregon.edu/TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
                                                        "Thank you for your patience,<br><br>" +
                                                        "Your Friendly Neighborhood IDR Team<p>",
@@ -242,8 +242,8 @@ sequenceDiagram
                                         emailext to: 'is.idr@uoregon.edu',
                                                  subject: 'COMPLETE - IDR Daily Refresh',
                                                  body: "<p>IDR Users!<br><br>" +
-                                                       "The data refreshes are now complete for all areas. We recommend re-running any reports that requiredata as of         yesterday.<br><br>" +
-                                                       "If you have any questions or concerns, please reach out to us via the <a href='https://service.uoregonedu/        TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
+                                                       "The data refreshes are now complete for all areas. We recommend re-running any reports that requiredata as of yesterday.<br><br>" +
+                                                       "If you have any questions or concerns, please reach out to us via the <a href='https://service.uoregonedu/TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
                                                        "Thank you for your patience,<br><br>" +
                                                        "Your Friendly Neighborhood IDR Team</p>",
                                                  from: 'noreply-is.idr@uoregon.edu',
