@@ -1729,7 +1729,7 @@
 </span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="s1">                                                               &#39;REFRESH_FINAID_UO&#39;     , &#39;Financial Aid &lt;br&gt;&#39;) domain</span>
 </span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="s1">                                        FROM IA_ADMIN.IA_MDBLOGH_UO</span>
 </span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="s1">                                        WHERE TRUNC(mdblogh_run_date) = TRUNC(SYSDATE)</span>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="s1">                                          AND mdblogh_error_ind = &#39;N&#39;</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="s1">                                          AND mdblogh_error_ind &lt;&gt; &#39;N&#39;</span>
 </span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="s1">                                          AND mdblogh_process IN (&#39;REFRESH_STUDENT_UO&#39;,</span>
 </span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="s1">                                                                  &#39;REFRESH_FINANCE_UO&#39;,</span>
 </span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="s1">                                                                  &#39;REFRESH_VAL_HIE_GEN_UO&#39;,</span>
@@ -1780,7 +1780,7 @@
 </span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">                                                   </span><span class="s2">&quot;This could cause some reports to show incomplete results. We apologize for this inconvenienceand are working to fix the issue. We will send an update when the refresh is finished for allareas.&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
 </span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">                                                   </span><span class="s2">&quot;If you have any questions or concerns, please reach out to us via the &lt;a href=&#39;https://serviceuoregon.edu/TDClient/Requests/ServiceDet?ID=18948&#39;&gt;UO Service Portal&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
 </span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">                                                   </span><span class="s2">&quot;Thank you for your patience,&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
-</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">                                                   </span><span class="s2">&quot;Your Friendly Neighborhood IDR Team&lt;p&gt;&quot;</span><span class="o">,</span>
+</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">                                                   </span><span class="s2">&quot;- IDR Team&lt;p&gt;&quot;</span><span class="o">,</span>
 </span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">                                             </span><span class="nl">from:</span><span class="w"> </span><span class="s1">&#39;noreply-is.idr@uoregon.edu&#39;</span><span class="o">,</span>
 </span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">                                             </span><span class="nl">mimeType:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span>
 </span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="w">                                </span><span class="o">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="o">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
@@ -2037,7 +2037,7 @@
 </span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="w">                                                   </span><span class="s2">&quot;The data refreshes are now complete for all areas. We recommend re-running any reports that requiredata as of yesterday.&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
 </span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">                                                   </span><span class="s2">&quot;If you have any questions or concerns, please reach out to us via the &lt;a href=&#39;https://service.uoregonedu/TDClient/Requests/ServiceDet?ID=18948&#39;&gt;UO Service Portal&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
 </span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87"></a><span class="w">                                                   </span><span class="s2">&quot;Thank you for your patience,&lt;br&gt;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
-</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">                                                   </span><span class="s2">&quot;Your Friendly Neighborhood IDR Team&lt;/p&gt;&quot;</span><span class="o">,</span>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">                                                   </span><span class="s2">&quot;- IDR Team&lt;/p&gt;&quot;</span><span class="o">,</span>
 </span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89"></a><span class="w">                                             </span><span class="nl">from:</span><span class="w"> </span><span class="s1">&#39;noreply-is.idr@uoregon.edu&#39;</span><span class="o">,</span>
 </span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="w">                                             </span><span class="nl">mimeType:</span><span class="w"> </span><span class="s1">&#39;text/html&#39;</span>
 </span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="w">                                </span><span class="o">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="o">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
@@ -2130,7 +2130,7 @@ Human Resources<br></p>
 <p>This could cause some reports to show incomplete results. We apologize for this inconvenience and are working to fix the issue. We will send an update when the refresh is finished for all areas.</p>
 <p>If you have any questions or concerns, please reach out to us via the <a href="https://service.uoregon.edu/TDClient/Requests/ServiceDet?ID=18948" target="_blank">UO Service Portal</a>.</p>
 <p>Thank you for your patience,</p>
-<p>Your Friendly Neighborhood IDR Team</p>
+<p>- IDR Team</p>
 </details>
 </div>
 <div class="tabbed-block">
@@ -2149,7 +2149,7 @@ Human Resources<br></p>
 <p>The data refreshes are now complete for all areas. We recommend re-running any reports that require data as of yesterday.</p>
 <p>If you have any questions or concerns, please reach out to us via the <a href="https://service.uoregon.edu/TDClient/Requests/ServiceDet?ID=18948" target="_blank">UO Service Portal</a>.</p>
 <p>Thank you for your patience,</p>
-<p>Your Friendly Neighborhood IDR Team</p>
+<p>- IDR Team</p>
 </details>
 </div>
 <div class="tabbed-block">
@@ -2158,7 +2158,10 @@ Human Resources<br></p>
 </div>
 </div>
 <p>This is process-automation was instituted on 01-MAR-2024.  Previously, this involved close-coordination with IDR Staff and DBAs during off-hours.</p>
-<p>In addition to this notification are manual steps taken by IDR Staff to update the status-report on the landing-page of <a href="https://cognos.uoregon.edu/ibmcognos/bi/?perspective=welcome" target="_blank">Cognos</a> to reflect Daily Refreshes are complete. </p>
+<p class="annotate">In addition to this notification, a custom <a href="https://confluence.uoregon.edu/display/apps/Cognos+Welcome+Screen" target="_blank">IDR Warehouse Batch Report</a> (1) placed on the Cognos landing page.  This report is scheduled to run daily at 7/8/9am.  If the Daily Refreshes complete later than 9am, IDR Staff manually refresh the report.</p>
+<ol>
+<li><a class="glightbox" href="../cognos_daily_refresh_report.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="cognos_daily_refresh_report" src="../cognos_daily_refresh_report.jpg" title="cognos_daily_refresh_report" /></a></li>
+</ol>
 
 
 
