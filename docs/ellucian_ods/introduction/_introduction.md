@@ -45,11 +45,12 @@ The daily refreshing process for the Ellucian Banner Operational Data Store (ODS
     Oracle DB Objects:
 
     * `Materialized Staging Views`: copies of `Banner Oracle Tables` across database links updated every 30 minutes.
-    * `Reporting Tables`: Indexed tables used for downstream consumption updated every night from 1:30am - 7:00am.
-    * `Composite Views`: Transformation Joins of `Materialized Staging Views` for used in loading to `Reporting Tables`.
+    * `Composite Views`: Transformation JOINs of `Materialized Staging Views` for used in loading to `Reporting Tables`.
     * `Change Tables`: Tables storing changes to `Materialized Staging Views` since last reload/refresh.
     * `Change Table Triggers`: Store `Materialized Staging View` record keys for inserts, updates, and deletes in Banner.
     * Oracle Data Integrator `ODI Mappings`: Jobs which load `Composite Views` to `Reporting Tables`
+    * `Reporting Tables`: Indexed tables used for downstream consumption updated every night from 1:30am - 7:00am.
+    * `Reporting Views`: Transformation JOINs of `Reporting Tables` used for consumption.
 
 === "IA_Admin"
 
@@ -71,5 +72,35 @@ The daily refreshing process for the Ellucian Banner Operational Data Store (ODS
         * `Content Store Security` (Packages/Data Modules, folders, reports)
         * `Capability Security` (Cognos Report user/writer/admin)
 
-ToDo:
+## Ellucian Insights
+
+University of Oregon uses Ellucian Banner ODS and IBM Cognos on-premise, with ODS and Cognos contracted separately.  
+
+Ellucian announced in 2023 the on-premise version of their Banner ODS product entered 'maintenance mode'.  This means Ellucian will not be providing any updates (other than security patches) aligned with updates to Banner.  Ellucian ***has not*** announced the "end of life" (end of support), and historically has provided ample and extended off-ramps to deprecated services.
+
+'Maintenance mode' potentially introduces a growing and significant drift between Banner and ODS data structures, effecting ODS consumption (reports, integrations) in unexpected ways.  Ellucian encouraged clients to transition to their SAAS offering called [`Ellucian Insights`](https://www.youtube.com/watch?v=sNgm8-iQceY&t=128s){:target="_blank"}.
+
+`Ellucian Insights` is comprised of the following components:
+
+* [Ellucian Experience](https://www.youtube.com/watch?v=rsCZB_6xkTU){:target="_blank"} User Interface
+* [Ellucian DataConnect](https://www.ellucian.com/assets/emea-ap/apacuc23-01-nov-2023-saas-ready-integrations-ethos-data-connect.pdf){:target="_blank"} data ingestion and transformation
+* [Ellucian Insights](https://www.ellucian.com/assets/en/solution-sheet/ellucian-insights-solution-sheet.pdf){:target="_blank"} reporting tool
+* AWS PostGres database storage
+* Ellucian ODS data models (same as on-premise service, adpated to PostGres)
+* Ellucian ODS metadata (same as on-premise service, adapted to Ellucian Experience UI)
+  
+
+## Pain Points and Metrics
+
+Since implementing Ellucian ODS in 2012, the University of Oregon has observed the following pain points amongst data consumers, developers, and administrators:
+
+### Data Quality
+
+### Data Literacy
+
+### Performance
+
+### Maintenance
+
+### Development Experience
 
