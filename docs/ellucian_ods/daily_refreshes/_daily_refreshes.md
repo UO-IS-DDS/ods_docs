@@ -360,7 +360,7 @@ sequenceDiagram
         **From: noreply-is.idr@uoregon.edu**<br>
         **Subject: COMPLETE - IDR Daily Refresh**
 
-        IDR Users!
+        IDR Users,
 
         The data refreshes are now complete for all areas. We recommend re-running any reports that require data as of yesterday.
         
