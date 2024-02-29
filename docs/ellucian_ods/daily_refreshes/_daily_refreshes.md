@@ -69,7 +69,7 @@ sequenceDiagram
                                                                    'REFRESH_FINAID_UO'     , 'Financial Aid <br>') domain
                                             FROM IA_ADMIN.IA_MDBLOGH_UO
                                             WHERE TRUNC(mdblogh_run_date) = TRUNC(SYSDATE)
-                                              AND mdblogh_error_ind = 'N'
+                                              AND mdblogh_error_ind <> 'N'
                                               AND mdblogh_process IN ('REFRESH_STUDENT_UO',
                                                                       'REFRESH_FINANCE_UO',
                                                                       'REFRESH_VAL_HIE_GEN_UO',
@@ -120,7 +120,7 @@ sequenceDiagram
                                                        "This could cause some reports to show incomplete results. We apologize for this inconvenienceand are working to fix the issue. We will send an update when the refresh is finished for allareas.<br><br>" +
                                                        "If you have any questions or concerns, please reach out to us via the <a href='https://serviceuoregon.edu/TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
                                                        "Thank you for your patience,<br><br>" +
-                                                       "Your Friendly Neighborhood IDR Team<p>",
+                                                       "- IDR Team<p>",
                                                  from: 'noreply-is.idr@uoregon.edu',
                                                  mimeType: 'text/html'
                                     } catch (Exception e) {
@@ -252,7 +252,7 @@ sequenceDiagram
                                                        "The data refreshes are now complete for all areas. We recommend re-running any reports that requiredata as of yesterday.<br><br>" +
                                                        "If you have any questions or concerns, please reach out to us via the <a href='https://service.uoregonedu/TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
                                                        "Thank you for your patience,<br><br>" +
-                                                       "Your Friendly Neighborhood IDR Team</p>",
+                                                       "- IDR Team</p>",
                                                  from: 'noreply-is.idr@uoregon.edu',
                                                  mimeType: 'text/html'
                                     } catch (Exception e) {
@@ -333,14 +333,13 @@ sequenceDiagram
         Human Resources<br>
         
         
-        
         This could cause some reports to show incomplete results. We apologize for this inconvenience and are working to fix the issue. We will send an update when the refresh is finished for all areas.
         
         If you have any questions or concerns, please reach out to us via the [UO Service Portal](https://service.uoregon.edu/TDClient/Requests/ServiceDet?ID=18948){:target="_blank"}.
         
         Thank you for your patience,
         
-        Your Friendly Neighborhood IDR Team
+        \- IDR Team
     
 
 === "Step 3"
@@ -369,7 +368,7 @@ sequenceDiagram
         
         Thank you for your patience,
         
-        Your Friendly Neighborhood IDR Team
+        \- IDR Team
 
 
 === "Step 5"
@@ -378,5 +377,7 @@ sequenceDiagram
 
 This is process-automation was instituted on 01-MAR-2024.  Previously, this involved close-coordination with IDR Staff and DBAs during off-hours.
 
-In addition to this notification are manual steps taken by IDR Staff to update the status-report on the landing-page of [Cognos](https://cognos.uoregon.edu/ibmcognos/bi/?perspective=welcome){:target="_blank"} to reflect Daily Refreshes are complete. 
+In addition to this notification, a custom [IDR Warehouse Batch Report](https://confluence.uoregon.edu/display/apps/Cognos+Welcome+Screen){:target="_blank"} (1) placed on the Cognos landing page.  This report is scheduled to run daily at 7/8/9am.  If the Daily Refreshes complete later than 9am, IDR Staff manually refresh the report.
+{ .annotate}
 
+1. ![cognos_daily_refresh_report](./cognos_daily_refresh_report.jpg "cognos_daily_refresh_report")
