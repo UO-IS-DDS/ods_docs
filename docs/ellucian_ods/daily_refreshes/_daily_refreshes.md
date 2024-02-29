@@ -22,7 +22,7 @@ sequenceDiagram
 ```
 
 ??? info "dds_late_ods_etl__start.groovy"
-    ``` groovy linenums="1" hl_lines="38-53"
+    ``` groovy linenums="1"
     pipeline {
         agent {
             node {
