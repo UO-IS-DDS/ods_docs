@@ -1444,6 +1444,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ellucian-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ellucian Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pain-points-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pain Points and Metrics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pain Points and Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-literacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Literacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1530,6 +1613,89 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ellucian-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ellucian Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pain-points-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pain Points and Metrics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pain Points and Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-literacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Literacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1629,11 +1795,12 @@
 <p>Oracle DB Objects:</p>
 <ul>
 <li><code>Materialized Staging Views</code>: copies of <code>Banner Oracle Tables</code> across database links updated every 30 minutes.</li>
-<li><code>Reporting Tables</code>: Indexed tables used for downstream consumption updated every night from 1:30am - 7:00am.</li>
-<li><code>Composite Views</code>: Transformation Joins of <code>Materialized Staging Views</code> for used in loading to <code>Reporting Tables</code>.</li>
+<li><code>Composite Views</code>: Transformation JOINs of <code>Materialized Staging Views</code> for used in loading to <code>Reporting Tables</code>.</li>
 <li><code>Change Tables</code>: Tables storing changes to <code>Materialized Staging Views</code> since last reload/refresh.</li>
 <li><code>Change Table Triggers</code>: Store <code>Materialized Staging View</code> record keys for inserts, updates, and deletes in Banner.</li>
 <li>Oracle Data Integrator <code>ODI Mappings</code>: Jobs which load <code>Composite Views</code> to <code>Reporting Tables</code></li>
+<li><code>Reporting Tables</code>: Indexed tables used for downstream consumption updated every night from 1:30am - 7:00am.</li>
+<li><code>Reporting Views</code>: Transformation JOINs of <code>Reporting Tables</code> used for consumption.</li>
 </ul>
 </div>
 <div class="tabbed-block">
@@ -1662,7 +1829,26 @@
 </div>
 </div>
 </div>
-<p>ToDo:</p>
+<h2 id="ellucian-insights">Ellucian Insights</h2>
+<p>University of Oregon uses Ellucian Banner ODS and IBM Cognos on-premise, with ODS and Cognos contracted separately.  </p>
+<p>Ellucian announced in 2023 the on-premise version of their Banner ODS product entered 'maintenance mode'.  This means Ellucian will not be providing any updates (other than security patches) aligned with updates to Banner.  Ellucian <strong><em>has not</em></strong> announced the "end of life" (end of support), and historically has provided ample and extended off-ramps to deprecated services.</p>
+<p>'Maintenance mode' potentially introduces a growing and significant drift between Banner and ODS data structures, effecting ODS consumption (reports, integrations) in unexpected ways.  Ellucian encouraged clients to transition to their SAAS offering called <a href="https://www.youtube.com/watch?v=sNgm8-iQceY&amp;t=128s" target="_blank"><code>Ellucian Insights</code></a>.</p>
+<p><code>Ellucian Insights</code> is comprised of the following components:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rsCZB_6xkTU" target="_blank">Ellucian Experience</a> User Interface</li>
+<li><a href="https://www.ellucian.com/assets/emea-ap/apacuc23-01-nov-2023-saas-ready-integrations-ethos-data-connect.pdf" target="_blank">Ellucian DataConnect</a> data ingestion and transformation</li>
+<li><a href="https://www.ellucian.com/assets/en/solution-sheet/ellucian-insights-solution-sheet.pdf" target="_blank">Ellucian Insights</a> reporting tool</li>
+<li>AWS PostGres database storage</li>
+<li>Ellucian ODS data models (same as on-premise service, adpated to PostGres)</li>
+<li>Ellucian ODS metadata (same as on-premise service, adapted to Ellucian Experience UI)</li>
+</ul>
+<h2 id="pain-points-and-metrics">Pain Points and Metrics</h2>
+<p>Since implementing Ellucian ODS in 2012, the University of Oregon has observed the following pain points amongst data consumers, developers, and administrators:</p>
+<h3 id="data-quality">Data Quality</h3>
+<h3 id="data-literacy">Data Literacy</h3>
+<h3 id="performance">Performance</h3>
+<h3 id="maintenance">Maintenance</h3>
+<h3 id="development-experience">Development Experience</h3>
 
 
 
