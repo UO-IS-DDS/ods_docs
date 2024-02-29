@@ -31,6 +31,7 @@ theme:
     - content.code.annotate 
     - content.action.edit
     - content.tabs.link
+    - toc.integrate
 markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
