@@ -248,7 +248,7 @@ sequenceDiagram
                                         echo "Sending email"
                                         emailext to: 'is.idr@uoregon.edu',
                                                  subject: 'COMPLETE - IDR Daily Refresh',
-                                                 body: "<p>IDR Users!<br><br>" +
+                                                 body: "<p>IDR Users,<br><br>" +
                                                        "The data refreshes are now complete for all areas. We recommend re-running any reports that requiredata as of yesterday.<br><br>" +
                                                        "If you have any questions or concerns, please reach out to us via the <a href='https://service.uoregonedu/TDClient/Requests/ServiceDet?ID=18948'>UO Service Portal</a>.<br><br>" +
                                                        "Thank you for your patience,<br><br>" +
