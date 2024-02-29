@@ -14,7 +14,7 @@ sequenceDiagram
   DDS->>Users: Manual Email Forward
 ```
 
-??? question "dds_late_ods_etl__start.groovy"
+??? info "dds_late_ods_etl__start.groovy"
     ``` groovy linenums="1" hl_lines="38-53"
     pipeline {
         agent {
@@ -156,7 +156,7 @@ sequenceDiagram
     ```
 
 
-??? question "dds_late_ods_etl__finish.groovy"
+??? info "dds_late_ods_etl__finish.groovy"
     ``` groovy linenums="1"
     pipeline {
         agent {
@@ -312,7 +312,7 @@ sequenceDiagram
     
     However, if **ANY** `Map Groups` have yet to complete, a notifcation email is generated to notify IDR Users (UO Staff with Cognos accounts) with the specific `Map Groups` still running.
 
-    ??? question "Example Email to IDR Users"
+    ??? abstract "Example Email to IDR Users"
         **To: idr-status@uoregon.edu**<br>
         **From: noreply-is.idr@uoregon.edu**<br>
         **Subject: LATE - IDR Daily Refresh**
@@ -349,7 +349,7 @@ sequenceDiagram
 
     In addition to **self-disabling**, the Jenkins Job [IDR Late Daily Refresh Monitor](https://esm.uoregon.edu:8080/view/IDR/job/IDR/job/IDR%20Late%20Daily%20Refresh%20Monitor/){:target="_blank"}, it sends a notifcation email to IDR Staff, alerting them to the completion of the late Daily Refreshing.
 
-    ??? question "Example Email to IDR Users"
+    ??? abstract "Example Email to IDR Users"
         **To: is.idr@uoregon.edu**<br>
         **From: noreply-is.idr@uoregon.edu**<br>
         **Subject: COMPLETE - IDR Daily Refresh**
