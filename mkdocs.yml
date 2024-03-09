@@ -112,3 +112,4 @@ nav:
   - Ellucian ODS: 
     - Introduction: ellucian_ods/introduction/_introduction.md
     - Daily Refreshes: ellucian_ods/daily_refreshes/_daily_refreshes.md
+    - Full ODS Reload: ellucian_ods/full_ods_reload/_full_ods_reload.md
