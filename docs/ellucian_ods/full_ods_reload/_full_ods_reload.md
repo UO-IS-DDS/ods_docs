@@ -62,25 +62,6 @@ These steps outline actions taken by DDS DEs to set/validate temporary configura
     In [IA_Admin for IOED](https://testweb.uoregon.edu/odsedwdev/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu){:target="_blank"}/[IA_Admin for IOET](https://testweb.uoregon.edu/odsedw/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu){:target="_blank"}, restage the `SATURN.SPRIDEN` ODS Materialized View:
     
     ??? note annotate "Steps to Restage Single Materialized View(s)" 
-        <div class="grid" markdown>
-
-        ![single_restage](./single_restage.gif "single_restage")
+        <iframe src="https://scribehow.com/embed/Safari_and_Microsoft_Teams_work_or_school_Workflow__VGlDBNbBQX6Zqzj0R4R8KQ?skipIntro=true&removeLogo=true" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
 
 
-        1. Select **"Staging"** upper tab
-        - Select **"Reconcile Stage Tables"**
-        - Select **"Reconcile by Table Name"**
-        - Ensure **"Source Database"** = BPRA_IOED (TEST.WORLD)
-        - Select desired table(s) from **"Which Table(s)"**
-        - Set **"Action"**" = **"Restage All Selected Tables"**
-        - Deselect (all):
-            -   **"Compile Invalid Objects?"**
-            -   **"Execute All Apply Errors?"**
-            -   **"Refresh All MViews?"**
-        - Schedule to run immediately by clicking the***"here"***  link for Run Date/Time
-        - Select **"Submit"**
-        - Monitor job execution by selecting **"Options"**upper    tab
-        - Select **"View Control Reports"**
-        
-        </div>
-    
