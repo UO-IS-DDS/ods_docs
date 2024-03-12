@@ -25,9 +25,20 @@ graph LR
     source_tables[Source Tables] --- DBT[DBT Models]
   end
   domain --> model
-  model -->| extract-only | table_key[Table Key];
+  subgraph export_type[Export Type]
+    Parquet 
+    DuckDB
+    Excel
+  end
+  subgraph option
+    export_type
+    table_key
+  end
+  model --> option
+
 ```
 
+## Python CLI File Structure
 ``` mermaid
 graph LR
 
