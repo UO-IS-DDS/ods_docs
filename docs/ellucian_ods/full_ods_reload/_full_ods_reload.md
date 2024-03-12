@@ -1,6 +1,12 @@
 ## Overview
 
-After a Banner PROD-to-TEST clone, ODS environments fed by Banner TEST (IOED & IOET) require a Full ODS Reload.
+UO periodically clones Banner PROD data to Banner TEST, giving developers and users refreshed 'testing' data.  Historically, this occurs roughly every 8 months.
+
+After a Banner PROD-to-TEST clone, ODS environments fed by Banner TEST (IOED & IOET) require a Full ODS Reload.  This is a fairly complicated process which involves a reload of replicated Banner data, followed by a reload of replication-derived transformed data.  
+
+Many of the steps outlined can take hours, require attentive monitoring, orchestration, and troubleshooting, resulting in the overall process lasting up to 2 weeks.
+
+This process has historically been performed by DBAs, but starting 2/2024 is managed by DDS Data Engineers.
 
 ## Preliminary Actions
 
@@ -64,4 +70,54 @@ These steps outline actions taken by DDS DEs to set/validate temporary configura
     ??? note annotate "Steps to Restage Single Materialized View(s)" 
         <iframe src="https://scribehow.com/embed/Safari_and_Microsoft_Teams_work_or_school_Workflow__VGlDBNbBQX6Zqzj0R4R8KQ?skipIntro=true&removeLogo=true" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
 
+5. **Confirm Configuration**(1):
+{ .annotate }
+    1. In the Banner PROD-to-TEST clone process, many configurations from the Banner-side are altered and re-instated.  
+    To ensure proper configurations for Banner-to-IOEx DB Links, Snapshots and MViews, reviewing results from the previous step are neccessary
+
+    Run the following in Banner TEST to confirm the Snapshots configuration is registered correctly to the environment for the previous step (IOED or IOET):
+
+    ``` sql
+    select l.snapshot_id,
+           owner,
+           name,
+           substr(snapshot_site, 1, 30) snapshot_site,
+           to_char(current_snapshots, 'mm/dd/yyyy hh24:mi:ss') current_snapshots
+    from dba_registered_snapshots r, dba_snapshot_logs l
+    where r.snapshot_id = l.snapshot_id(+)
+      and name = 'SPRIDEN';
+    ```
+
+    The results should look like below. `CURRENT_SNAPSHOTS` should reflect Restaging SPRIDEN in previous step:
+
+    |SNAPSHOT_ID|OWNER  |NAME   |SNAPSHOT_SITE    |CURRENT_SNAPSHOTS  |
+    |-----------|-------|-------|-----------------|-------------------|
+    |4108       |SATURN |SPRIDEN|IOED.UOREGON.EDU |03/11/2024 08:32:23|
+
+    Next, run the following in (in Banner TEST) to confirm the registered views are properly configured:
+
+    ``` sql
+    select t.owner, 
+       t.name,
+       t.mview_site,
+       t.can_use_log
+    from dba_registered_mviews t 
+    where t.name = 'SPRIDEN';
+    ```
+    The results should look like below. `MVIEW_SITE` should reflect the IOEx environment SPRIDEN was restaged in:
+
+    |OWNER  |NAME    |MVIEW_SITE       |CAN_USE_LOG |
+    |-------|--------|-----------------|------------|
+    |SATURN |SPRIDEN |IOED.UOREGON.EDU |YES         |
+
+
+## Replication Reload
+
+6. **Restage by Schemas**(1):
+{ .annotate }
+    1. There is a specific order different schemas need to be restaged.  Upon the completion of a restaged schema, there are often errors in the Control Reports that can be ignored, and others that cannot.  These errors need to be addressed before moving on to the next schema.
+
+    Restage the following schemas, ***in order***.  
+    
+    Before progressing to the next schema, review the Control Reports for errors:
 
