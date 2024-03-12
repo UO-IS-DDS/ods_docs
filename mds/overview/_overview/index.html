@@ -1151,6 +1151,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-cli-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python CLI File Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1576,7 +1587,18 @@
     source_tables[Source Tables] --- DBT[DBT Models]
   end
   domain --&gt; model
-  model --&gt;| extract-only | table_key[Table Key];</code></pre>
+  subgraph export_type[Export Type]
+    Parquet 
+    DuckDB
+    Excel
+  end
+  subgraph option
+    export_type
+    table_key
+  end
+  model --&gt; option
+</code></pre>
+<h2 id="python-cli-file-structure">Python CLI File Structure</h2>
 <pre class="mermaid"><code>graph LR
 
 main.py --&gt; extract.py
