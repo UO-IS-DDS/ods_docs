@@ -1092,6 +1092,23 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1107,6 +1124,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manifest
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1506,68 +1553,41 @@
 
 
 <h1 id="mds-modern-data-service">(MDS) Modern Data Service</h1>
-<pre class="mermaid"><code>stateDiagram-v2
+<h2 id="manifest">Manifest</h2>
+<pre class="mermaid"><code>graph LR
 
-  %% Declare Objects
-  jenkins : Jenkins
-  one_drive_folders : OneDrive Folders
-  secure_one_drive_folders : OneDrive Folders
-  cognos_security : Cognos Object Security
-  ioex : IOEx
-  state nighly_or_hourly &lt;&lt;fork&gt;&gt;
-  state ad &lt;&lt;fork&gt;&gt;
+  extract --&gt; Oracle
+  subgraph targets [ ]
+    Cognos --- Onedrive
+  end
+  secure --&gt; targets
+  load --&gt; targets
+  subgraph source
+    Oracle
+    targets
+  end
+  subgraph domain
+    Security --- Common
+    Common --- Registrar
+  end 
+  Oracle --&gt; domain
+  targets --&gt; domain
+  subgraph model
+    source_tables[Source Tables] --- DBT[DBT Models]
+  end
+  domain --&gt; model
+  model --&gt;| extract-only | table_key[Table Key];</code></pre>
+<pre class="mermaid"><code>graph LR
 
-  nightly : Nightly
-  hourly : Hourly
-
-  duckdb_main : Main DuckDB
-  duckdb_secure : Secure DuckDB
-  parquet_source_load : Parquet Source
-  parquet_source_delta : Parquet Soure Delta
-  parque_secure : Secure Parquet
-  dbt_run : DBT
-  metadata_publish : Metadata Publish
-
-  %% Define Classes
-  classDef DuckDB stroke:yellow
-  classDef Application stroke:red
-  classDef Consumption stroke:green
-
-
-  %% Apply Classes
-  class jenkins Application
-  class nightly Application
-  class hourly Application
-  class dbt_run Application
-  class metadata_publish Application
-  class ioex Application
-  class one_drive_folders Consumption
-  class cognos_security Consumption
-  class secure_one_drive_folders Consumption
-  class OneDriveConsumer OneDrive
-  class duckdb_main DuckDB
-  class duckdb_secure DuckDB
-
-  %% Define Flow
-  jenkins --&gt; ad
-  ad --&gt; one_drive_folders : OneDrive_AD_Security.py
-  ad --&gt; cognos_security : Cognos_AD_Security.py
-  one_drive_folders --&gt; nighly_or_hourly
-  cognos_security --&gt; nighly_or_hourly
-  nighly_or_hourly --&gt; nightly
-  nighly_or_hourly --&gt; hourly
-  nightly --&gt; parquet_source_load : Oracle2ParquetLoad.py
-  parquet_source_load --&gt; duckdb_main : Parquet2DuckDBLoad.py
-  duckdb_main --&gt; dbt_run : ODS_DBT_run.py
-  hourly --&gt; parquet_source_delta : Oracle2ParquetRefresh.py
-  parquet_source_delta --&gt; duckdb_main : Parquet2DuckDBRefresh.py
-  dbt_run --&gt; metadata_publish : ODS_metadata_publish.py
-  dbt_run --&gt; duckdb_secure : ODS_apply_duckdb_security.py
-  duckdb_secure --&gt; parque_secure : ODS_apply_parquet_security.py
-  parque_secure --&gt; ioex : Parquet2Oracle.py
-  parque_secure --&gt; secure_one_drive_folders : Parquet2OneDrive.py
-  duckdb_secure --&gt; secure_one_drive_folders : DuckDB2OneDrive.py
-</code></pre>
+main.py --&gt; extract.py
+extract.py --&gt; oracle.py
+main.py --&gt; secure.py
+main.py --&gt; load.py
+subgraph s1 [ ]
+  cognos.py --- onedrive.py
+end
+secure.py --&gt; s1
+load.py --&gt; s1</code></pre>
 
 
 
