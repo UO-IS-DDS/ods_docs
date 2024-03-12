@@ -11,7 +11,7 @@ graph LR
   end
   secure --> targets
   load --> targets
-  subgraph connect
+  subgraph location
     Oracle
     targets
   end
@@ -45,7 +45,7 @@ upon CLI statement execution.
   1.  `validate.py` also checks valid connection credentials and coherence between AD and DBT security for `connect`
 
 ??? note annotate "`manifest.csv` provides flexibility in usage when combined with telescopic CLI commands `E|S|L <connect> <domain> [model] [option]`"
-    | connect | domain  | model | option |
+    | location | domain  | model | option |
     |---|---|---|---|
     | prod | madsd-8008 | saturn.saraatt | saraatt_surrogate_id |
     | prod | madsd-8008 | saturn.saradap | saradap_surrogate_id |
