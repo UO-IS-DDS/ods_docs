@@ -1573,7 +1573,7 @@
   end
   secure --&gt; targets
   load --&gt; targets
-  subgraph source
+  subgraph connect
     Oracle
     targets
   end
@@ -1598,10 +1598,165 @@
   end
   model --&gt; option
 </code></pre>
+<p class="annotate"><code>manifest.csv</code> is located at CLI application root.  Its structure is validated(1) 
+upon CLI statement execution.</p>
+<ol>
+<li><code>validate.py</code> also checks valid connection credentials and coherence between AD and DBT security for <code>connect</code></li>
+</ol>
+<details class="note annotate">
+<summary><code>manifest.csv</code> provides flexibility in usage when combined with telescopic CLI commands <code>E|S|L &lt;connect&gt; &lt;domain&gt; [model] [option]</code></summary>
+<table>
+<thead>
+<tr>
+<th>connect</th>
+<th>domain</th>
+<th>model</th>
+<th>option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prod</td>
+<td>madsd-8008</td>
+<td>saturn.saraatt</td>
+<td>saraatt_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>madsd-8008</td>
+<td>saturn.saradap</td>
+<td>saradap_surrogate_id</td>
+</tr>
+<tr>
+<td>onedrive</td>
+<td>dds-7734</td>
+<td>general.gwodupj</td>
+<td>none</td>
+</tr>
+<tr>
+<td>cognos</td>
+<td>mds-registrar</td>
+<td>dim_student</td>
+<td>none</td>
+</tr>
+<tr>
+<td>cognos</td>
+<td>mds-registrar</td>
+<td>fct_student_term_level</td>
+<td>none</td>
+</tr>
+<tr>
+<td>onedrive</td>
+<td>mds-registrar</td>
+<td>dim_student</td>
+<td>none</td>
+</tr>
+<tr>
+<td>onedrive</td>
+<td>mds-registrar</td>
+<td>fct_student_term_level</td>
+<td>none</td>
+</tr>
+<tr>
+<td>onedrive</td>
+<td>mds-registrar</td>
+<td>exp_student_detail</td>
+<td>none</td>
+</tr>
+<tr>
+<td>onedrive</td>
+<td>mds-registrar</td>
+<td>student_data_report</td>
+<td>excel</td>
+</tr>
+<tr>
+<td>local</td>
+<td>lampman</td>
+<td>latin_list</td>
+<td>excel</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-finaid</td>
+<td>faismgr.rtvyicd</td>
+<td>none</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-finaid</td>
+<td>faismgr.rurvers</td>
+<td>none</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-finaid</td>
+<td>faismgr.rbracmp</td>
+<td>rbracmp_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-finaid</td>
+<td>faismgr.rbrapbc</td>
+<td>rbrapbc_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-common</td>
+<td>general.glbextr</td>
+<td>glbextr_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-common</td>
+<td>general.goremal</td>
+<td>goremal_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-hr</td>
+<td>payroll.pwvretc</td>
+<td>none</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-hr</td>
+<td>payroll.perdtot</td>
+<td>perdtot_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-registrar</td>
+<td>saturn.saraatt</td>
+<td>saraatt_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-registrar</td>
+<td>saturn.saraatt</td>
+<td>saraatt_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-registrar</td>
+<td>saturn.saraatt</td>
+<td>saraatt_surrogate_id</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>mds-registrar</td>
+<td>saturn.saradap</td>
+<td>saradap_surrogate_id</td>
+</tr>
+</tbody>
+</table>
+</details>
 <h2 id="python-cli-file-structure">Python CLI File Structure</h2>
 <pre class="mermaid"><code>graph LR
 
 main.py --&gt; extract.py
+main.py --&gt; validate.py
+validate.py ~~~ extract.py
+validate.py ~~~ load.py
 extract.py --&gt; oracle.py
 main.py --&gt; secure.py
 main.py --&gt; load.py
